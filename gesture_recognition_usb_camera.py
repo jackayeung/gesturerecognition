@@ -18,16 +18,61 @@ def draw_hand_landmarks(frame_rgb, hand_landmarks):
 
     return frame_rgb
 
+def create_hand_mask(frame, hand_landmarks, padding=20):
+    # Create an empty mask
+    mask = np.zeros(frame.shape[:2], dtype=np.uint8)
+
+    # Get the coordinates for the landmarks
+    landmark_coords = [(int(landmark.x * frame.shape[1]), int(landmark.y * frame.shape[0])) for landmark in hand_landmarks.landmark]
+
+    # Create a convex hull around the hand landmarks
+    hull = cv2.convexHull(np.array(landmark_coords))
+    
+    # Apply padding to the hull
+    hull_padded = cv2.erode(cv2.dilate(hull, None, iterations=padding), None, iterations=padding)
+    
+    # Fill the convex hull to create the mask
+    cv2.fillConvexPoly(mask, hull_padded, 255)
+
+    return mask
+
 def process_hand_gestures(frame, hands):
     frame_rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-    result = hands.process(frame_rgb)
+
+    # Apply Gaussian blur
+    blur_size = (5, 5)
+    frame_rgb_blurred = cv2.GaussianBlur(frame_rgb, blur_size, 0)
+
+    # Convert to grayscale
+    gray = cv2.cvtColor(frame_rgb_blurred, cv2.COLOR_RGB2GRAY)
+
+    # Apply adaptive thresholding
+    max_output_value = 255
+    adaptive_method = cv2.ADAPTIVE_THRESH_GAUSSIAN_C  # Can also use ADAPTIVE_THRESH_MEAN_C
+    threshold_type = cv2.THRESH_BINARY
+    block_size = 11  # Size of a pixel neighborhood that is used to calculate a threshold value
+    c = 2  # A constant subtracted from the mean or weighted mean
+
+    thresholded = cv2.adaptiveThreshold(gray, max_output_value, adaptive_method, threshold_type, block_size, c)
+
+    # Convert back to color so we can draw colored landmarks on it
+    frame_rgb_thresholded = cv2.cvtColor(thresholded, cv2.COLOR_GRAY2RGB)
+
+    result = hands.process(frame_rgb_thresholded)
 
     if result.multi_hand_landmarks:
         for hand_landmarks in result.multi_hand_landmarks:
-            frame_rgb = draw_hand_landmarks(frame_rgb, hand_landmarks)
+            # Create a binary mask for the detected hand
+            hand_mask = create_hand_mask(frame_rgb_thresholded, hand_landmarks)
+           
+            # Apply the mask to the frame
+            frame_rgb_masked = cv2.bitwise_and(frame_rgb_thresholded, frame_rgb_thresholded, mask=hand_mask)
+            frame_rgb_thresholded = draw_hand_landmarks(frame_rgb_thresholded, hand_landmarks)
             perform_actions_based_on_gestures(hand_landmarks)
 
-    return frame_rgb
+    return frame_rgb_thresholded
+
+
 
 def is_pointer_finger_up(hand_landmarks):
     wrist = hand_landmarks.landmark[mp_hands.HandLandmark.WRIST]
