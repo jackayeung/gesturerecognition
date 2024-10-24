@@ -1,4 +1,4 @@
-# gesturerecognition
+# Gesture Recognition
 
 This project focused on the development of a right-handed gesture recognition system aimed at enhancing user interaction with a computer. Using a combination of computer vision and machine learning, the system interprets specific hand gestures, translating them into corresponding macros or actions on the computer. The emphasis on right-handed gestures is a starting point, laying the foundation for more complex, ambidextrous interactions in future iterations of this project.
 
