@@ -13,6 +13,10 @@ The goal was to perform various convenient actions on the computer based on the 
 
 To accomplish this, the Mediapipe HandPose model is imported and initialized with specific configurations. It then defines several functions to draw hand landmarks, process hand gestures, perform actions based on the detected gestures, and identify specific gestures.
 
+<p align="center">
+  <img src="images/graph1.png" alt="Example Image">
+</p>
+
 Video from the camera is captured using OpenCV’s VideoCapture class. Then, in a loop, each frame of the video is read, processed, and displayed. After a hand gesture is recognized, there is a debounce time of 1.5 seconds to add a delay between registering the gesture and executing the macro; without this delay, the gesture recognition becomes overresponsive and registers multiple of the same gesture being performed over and over.
 
 ## **Gesture Recognition and Processing**
@@ -29,17 +33,6 @@ The loop for capturing and processing video frames continues until the user opts
 
 ## **Debounce Time**
 The 1.5-second debounce time was empirically determined, providing a balance that prevents over-responsiveness while ensuring a fluid user experience.
-
-## **Demonstration Video**
-A demonstration video is provided below to showcase the system in action. The demonstration video registers four gestures currently:
-1. thumbs up (volume up)
-2. thumbs down (volume down)
-3. the UT Austin Hook ‘Em Horns hand sign (to open a tab with the school’s fight song)
-4. outstretched palm (to minimize / bring back all tabs on the computer).
-
-In the video, you can observe the system successfully recognizing the four gestures and executing the corresponding computer actions. Pay attention to the thumbs-up gesture, where the system’s dependency on the palm’s visibility is evident.
-
-The script continuously receives frames and interprets whether specific hand gestures are detected or not. The loop continues until the user presses space bar, at which point the video capture stops and the program terminates.
 
 ## **Challenges and Areas for Improvement**
 ### **Challenge: Accuracy and Consistency**
