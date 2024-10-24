@@ -18,10 +18,11 @@ Video from the camera is captured using OpenCV’s VideoCapture class. Then, in 
 **Gesture Recognition and Processing**
 The Mediapipe HandPose model is configured and initialized to start recognizing hand landmarks. A series of functions are defined for:
 
-Drawing hand landmarks on the live video feed.
-Processing the captured hand gestures.
-Performing specific actions based on the recognized gestures.
-Identifying unique gestures such as thumbs up, thumbs down, ‘Hook ‘Em Horns’, and an outstretched palm.
+1. Drawing hand landmarks on the live video feed.
+2. Processing the captured hand gestures.
+3. Performing specific actions based on the recognized gestures.
+4. Identifying unique gestures such as thumbs up, thumbs down, ‘Hook ‘Em Horns’, and an outstretched palm.
+   
 The system captures video through OpenCV’s VideoCapture class, processes each frame, and displays the result in real-time. Upon recognizing a gesture, a debounce mechanism is implemented, introducing a 1.5-second delay before executing the corresponding macro. This delay ensures that the system doesn’t become overresponsive, preventing the registration of repetitive gestures.
 
 The loop for capturing and processing video frames continues until the user opts to terminate the program by pressing the space bar.
@@ -31,11 +32,10 @@ The 1.5-second debounce time was empirically determined, providing a balance tha
 
 **Demonstration Video**
 A demonstration video is provided below to showcase the system in action. The demonstration video registers four gestures currently:
-
-thumbs up (volume up)
-thumbs down (volume down)
-the UT Austin Hook ‘Em Horns hand sign (to open a tab with the school’s fight song)
-outstretched palm (to minimize / bring back all tabs on the computer).
+1. thumbs up (volume up)
+2. thumbs down (volume down)
+3. the UT Austin Hook ‘Em Horns hand sign (to open a tab with the school’s fight song)
+4. outstretched palm (to minimize / bring back all tabs on the computer).
 
 In the video, you can observe the system successfully recognizing the four gestures and executing the corresponding computer actions. Pay attention to the thumbs-up gesture, where the system’s dependency on the palm’s visibility is evident.
 
