@@ -47,11 +47,11 @@ Currently, ideas for improvement revolve around incorporating two-handed gesture
 ### **Accuracy and Consistency**
 While the system performs well in optimal conditions, it exhibits inconsistencies in gesture recognition, particularly when the palm is not fully visible to the camera. To improve this, further refinement of the model and possibly the integration of additional angle-invariant recognition techniques are necessary.
 
-###**Future Improvements**
+### **Future Improvements**
 * **Two-Handed Gesture Recognition**: Expanding the system to recognize gestures from both hands would significantly enhance its utility.
 * **Dynamic Gesture Recognition**: Implementing the recognition of dynamic gestures such as clapping or waving presents an exciting avenue for development.
 * **Improving Current System:** Prior to these enhancements, focusing on refining the accuracy of the current right-handed gesture recognition system is paramount.
 * **Semi-Auto-Image-Labeler:** To expedite the creation of a diverse dataset for training, a semi-automated image labeling system is proposed. Here, the model makes initial guesses on the labels, which are then verified or corrected by a human annotator.
 
-##Conclusion
+## Conclusion
 This project represents a significant step towards intuitive and natural computer interaction through gesture recognition. While the current implementation is limited to right-handed gestures and exhibits areas for improvement in terms of accuracy and consistency, it lays a strong foundation for future developments. The path forward includes enhancing the current system’s precision, expanding to ambidextrous gesture recognition, and exploring the domain of dynamic gestures.
