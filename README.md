@@ -43,7 +43,7 @@ The script continuously receives frames and interprets whether specific hand ges
 
 Currently, ideas for improvement revolve around incorporating two-handed gesture recognition because the current system is designed to only recognize right-handed gestures. From there, dynamic gesture recognition (clapping, waving) sounds exciting to try. Before that though, I want to improve the accuracy of the current system. While experimenting, I’ve noticed the model can be inconsistent in recognizing gestures at times, especially from angles where the palm is not shown to the camera. This is noticeable in the video with the thumbs-up; I had to turn my palm towards the camera for the script to register it. I’ve had thoughts of training a CNN classifier to improve accuracy. To decrease labelling time, I’m interested in creating part of the dataset and creating a semi-auto-image-labeler for the rest of the dataset where the model guesses on the unlabeled data and a human confirms or corrects it.
 
-***Challenges and Areas for Improvement***
+**Challenges and Areas for Improvement**
 **Accuracy and Consistency**
 While the system performs well in optimal conditions, it exhibits inconsistencies in gesture recognition, particularly when the palm is not fully visible to the camera. To improve this, further refinement of the model and possibly the integration of additional angle-invariant recognition techniques are necessary.
 
