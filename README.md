@@ -15,7 +15,7 @@ To accomplish this, the Mediapipe HandPose model is imported and initialized wit
 
 Video from the camera is captured using OpenCV’s VideoCapture class. Then, in a loop, each frame of the video is read, processed, and displayed. After a hand gesture is recognized, there is a debounce time of 1.5 seconds to add a delay between registering the gesture and executing the macro; without this delay, the gesture recognition becomes overresponsive and registers multiple of the same gesture being performed over and over.
 
-**Gesture Recognition and Processing**
+##**Gesture Recognition and Processing**
 The Mediapipe HandPose model is configured and initialized to start recognizing hand landmarks. A series of functions are defined for:
 
 1. Drawing hand landmarks on the live video feed.
@@ -27,10 +27,10 @@ The system captures video through OpenCV’s VideoCapture class, processes each 
 
 The loop for capturing and processing video frames continues until the user opts to terminate the program by pressing the space bar.
 
-**Debounce Time**
+##**Debounce Time**
 The 1.5-second debounce time was empirically determined, providing a balance that prevents over-responsiveness while ensuring a fluid user experience.
 
-**Demonstration Video**
+##**Demonstration Video**
 A demonstration video is provided below to showcase the system in action. The demonstration video registers four gestures currently:
 1. thumbs up (volume up)
 2. thumbs down (volume down)
@@ -43,14 +43,15 @@ The script continuously receives frames and interprets whether specific hand ges
 
 Currently, ideas for improvement revolve around incorporating two-handed gesture recognition because the current system is designed to only recognize right-handed gestures. From there, dynamic gesture recognition (clapping, waving) sounds exciting to try. Before that though, I want to improve the accuracy of the current system. While experimenting, I’ve noticed the model can be inconsistent in recognizing gestures at times, especially from angles where the palm is not shown to the camera. This is noticeable in the video with the thumbs-up; I had to turn my palm towards the camera for the script to register it. I’ve had thoughts of training a CNN classifier to improve accuracy. To decrease labelling time, I’m interested in creating part of the dataset and creating a semi-auto-image-labeler for the rest of the dataset where the model guesses on the unlabeled data and a human confirms or corrects it.
 
-**Challenges and Areas for Improvement**
-**Accuracy and Consistency**
+##**Challenges and Areas for Improvement**
+###**Accuracy and Consistency**
 While the system performs well in optimal conditions, it exhibits inconsistencies in gesture recognition, particularly when the palm is not fully visible to the camera. To improve this, further refinement of the model and possibly the integration of additional angle-invariant recognition techniques are necessary.
 
-**Future Improvements**
-Two-Handed Gesture Recognition: Expanding the system to recognize gestures from both hands would significantly enhance its utility.
-Dynamic Gesture Recognition: Implementing the recognition of dynamic gestures such as clapping or waving presents an exciting avenue for development.
-Improving Current System: Prior to these enhancements, focusing on refining the accuracy of the current right-handed gesture recognition system is paramount.
-Semi-Auto-Image-Labeler: To expedite the creation of a diverse dataset for training, a semi-automated image labeling system is proposed. Here, the model makes initial guesses on the labels, which are then verified or corrected by a human annotator.
-Conclusion
+###**Future Improvements**
+* **Two-Handed Gesture Recognition**: Expanding the system to recognize gestures from both hands would significantly enhance its utility.
+* **Dynamic Gesture Recognition**: Implementing the recognition of dynamic gestures such as clapping or waving presents an exciting avenue for development.
+* **Improving Current System:** Prior to these enhancements, focusing on refining the accuracy of the current right-handed gesture recognition system is paramount.
+* **Semi-Auto-Image-Labeler:** To expedite the creation of a diverse dataset for training, a semi-automated image labeling system is proposed. Here, the model makes initial guesses on the labels, which are then verified or corrected by a human annotator.
+
+##Conclusion
 This project represents a significant step towards intuitive and natural computer interaction through gesture recognition. While the current implementation is limited to right-handed gestures and exhibits areas for improvement in terms of accuracy and consistency, it lays a strong foundation for future developments. The path forward includes enhancing the current system’s precision, expanding to ambidextrous gesture recognition, and exploring the domain of dynamic gestures.
