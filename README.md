@@ -14,7 +14,7 @@ The goal was to perform various convenient actions on the computer based on the 
 To accomplish this, the Mediapipe HandPose model is imported and initialized with specific configurations. It then defines several functions to draw hand landmarks, process hand gestures, perform actions based on the detected gestures, and identify specific gestures.
 
 <p align="center">
-  <img src="images/image.webp" alt="Example Image">
+  <img src="readme-assets/image.webp" alt="Example Image">
 </p>
 
 Video from the camera is captured using OpenCV’s VideoCapture class. Then, in a loop, each frame of the video is read, processed, and displayed. After a hand gesture is recognized, there is a debounce time of 1.5 seconds to add a delay between registering the gesture and executing the macro; without this delay, the gesture recognition becomes overresponsive and registers multiple of the same gesture being performed over and over.
