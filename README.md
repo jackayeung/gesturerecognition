@@ -32,7 +32,7 @@ The system captures video through OpenCV’s VideoCapture class, processes each 
 The loop for capturing and processing video frames continues until the user opts to terminate the program by pressing the space bar.
 
 ## **Debounce Time**
-The 1.5-second debounce time was empirically determined, providing a balance that prevents over-responsiveness while ensuring a fluid user experience.
+The 1.5-second debounce time was empirically determined via testing in real time. It provided a balance that prevented over-responsiveness while ensuring there wasn't a significant lag between making the gesture and having it be processed. This is subject to change.
 
 ## **Challenges and Areas for Improvement**
 ### **Challenge: Accuracy and Consistency**
