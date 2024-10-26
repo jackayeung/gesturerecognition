@@ -9,9 +9,9 @@ The script that performs this utilizes the following packages to detect and inte
 * **PyAutoGUI**: This library enables the automation of keyboard and mouse actions, allowing for the execution of macros corresponding to recognized gestures.
 * **WebBrowser**: Used to open URLs in the default web browser, such as linking to a school’s fight song when the ‘Hook ‘Em Horns’ gesture is recognized.
 
-The goal was to perform various convenient actions on the computer based on the detected hand gestures, where each macro would be mapped to a specific hand gesture. Currently, these actions include raising and lowering the system volume, minimizing all open windows, opening webpages, and playing or pausing videos.
+The goal was to be able to perform various convenient actions on the computer based on detected hand gestures, where each macro would be mapped to a specific hand gesture. Currently, these actions include raising and lowering the system volume, minimizing all open windows, opening webpages, and playing / pausing videos.
 
-To accomplish this, the Mediapipe HandPose model is imported and initialized with specific configurations. It then defines several functions to draw hand landmarks, process hand gestures, perform actions based on the detected gestures, and identify specific gestures.
+To accomplish this, the Mediapipe HandPose model is imported and initialized with specific configurations. The model draws hand landmarks as seen in the below image, which are subsequently used to process and identify specific gestures.
 
 <p align="center">
   <img src="readme-assets/image.webp" alt="Example Image">
